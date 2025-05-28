@@ -1,0 +1,556 @@
+/* --- Variables de Color y Fuentes --- */
+:root {
+    --primary-color: #6A0DAD; /* Púrpura */
+    --secondary-color: #A020F0; /* Púrpura más claro/Neón violeta */
+    --accent-color: #00FFFF; /* Neón Cyan/Azul claro */
+    --background-color: #121212; /* Negro/Gris oscuro */
+    --surface-color: #1E1E1E; /* Gris un poco más claro para cards */
+    --text-color: #FFFFFF;
+    --text-color-muted: #AAAAAA;
+    --font-main: 'Montserrat', sans-serif; /* Ejemplo, elige una urbana y legible */
+    --font-bold-weight: 700;
+    --font-normal-weight: 400;
+}
+
+/* --- Reseteo Básico y Globales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #333; /* Fondo para ver el mockup del teléfono */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    padding: 20px 0; /* Espacio arriba y abajo del mockup */
+}
+
+/* --- Contenedor del Mockup Móvil --- */
+.mobile-mockup {
+    width: 375px; /* Ancho típico de iPhone */
+    height: 812px; /* Alto típico de iPhone X y posteriores */
+    background-color: var(--background-color);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-bar {
+    height: 30px;
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-color-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 0.8em;
+    z-index: 100;
+}
+.status-bar .time {
+    font-weight: var(--font-bold-weight);
+}
+
+#app-content {
+    flex-grow: 1;
+    position: relative; /* Para que las pantallas se superpongan */
+    overflow-y: auto; /* Scroll si el contenido es más largo */
+}
+
+/* --- Estructura de Pantallas --- */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px); /* Descontar altura del bottom-nav si existe */
+    background-color: var(--background-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+/* Ajuste para pantallas que no tienen bottom nav */
+.screen:not(:has(.bottom-nav)) {
+    height: 100%;
+}
+
+
+.screen-content {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto; /* Scroll interno de la pantalla */
+}
+.screen-content.centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+/* --- Cabecera de la App --- */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--surface-color); /* O un púrpura oscuro */
+    border-bottom: 1px solid var(--primary-color);
+    min-height: 50px;
+}
+.app-header .header-logo {
+    height: 30px;
+    width: auto;
+}
+.app-header span {
+    font-size: 1.2em;
+    font-weight: var(--font-bold-weight);
+    color: var(--text-color);
+}
+.app-header i {
+    font-size: 1.2em;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+.back-button {
+    color: var(--accent-color) !important;
+}
+
+/* --- Navegación Inferior --- */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--primary-color);
+    padding: 10px 0;
+    position: sticky; /* Se queda abajo al scrollear */
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    height: 60px;
+}
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color-muted);
+    text-decoration: none;
+    font-size: 0.7em;
+}
+.nav-item i {
+    font-size: 1.5em;
+    margin-bottom: 4px;
+}
+.nav-item.active, .nav-item:hover {
+    color: var(--accent-color);
+}
+
+/* --- Elementos Comunes --- */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Bordes redondeados */
+    font-size: 1em;
+    font-weight: var(--font-bold-weight);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+.btn:active {
+    transform: scale(0.98);
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+.btn-secondary:hover {
+    background-color: rgba(0, 255, 255, 0.1); /* Neón hover sutil */
+}
+.btn-vote {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.logo-large {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+.event-logo-medium {
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+.icon-feature {
+    color: var(--accent-color);
+    margin: 10px;
+}
+.section-title {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: var(--font-bold-weight);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+.centered-text {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color-muted);
+}
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* --- Estilos Específicos de Pantallas --- */
+
+/* Home */
+.quick-access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.quick-access-item {
+    background-color: var(--surface-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-left: 3px solid var(--primary-color);
+}
+.quick-access-item:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--accent-color);
+}
+.quick-access-item i {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+.quick-access-item span {
+    font-size: 0.9em;
+    font-weight: var(--font-bold-weight);
+}
+.highlight-card {
+    background-color: var(--surface-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+.highlight-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+.highlight-card p {
+    font-size: 0.9em;
+    color: var(--text-color-muted);
+    margin-bottom: 10px;
+}
+.notification-icon {
+    position: relative;
+}
+.notification-icon::after { /* Simula un punto de notificación */
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    border: 1px solid var(--background-color);
+}
+
+/* Galería */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1; /* Para que sean cuadrados */
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.photo-actions {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+.photo-actions i {
+    color: white;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.photo-actions i.fa-heart.active { /* Para simular like */
+    color: var(--accent-color);
+}
+
+
+/* Artistas Emergentes */
+.artist-list .artist-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+.artist-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+.artist-info {
+    flex-grow: 1;
+}
+.artist-info h4 {
+    color: var(--accent-color);
+    margin-bottom: 3px;
+}
+.artist-info p {
+    font-size: 0.8em;
+    color: var(--text-color-muted);
+}
+.tiktok-preview {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: var(--text-color-muted);
+    display: flex;
+    align-items: center;
+}
+.tiktok-preview i {
+    color: var(--accent-color);
+    margin-left: 5px;
+}
+
+/* Eventos */
+.event-card {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+}
+.event-banner {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+.event-details {
+    padding: 15px;
+}
+.event-details h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+.event-details p {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.event-details p i {
+    color: var(--primary-color);
+    margin-right: 8px;
+    width: 15px; /* Alineación de iconos */
+}
+.event-details .promotion {
+    color: var(--accent-color);
+    font-weight: var(--font-bold-weight);
+}
+
+/* Perfil */
+.profile-header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--surface-color);
+    margin-bottom: 20px;
+}
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+.profile-header h3 {
+    font-size: 1.5em;
+    color: var(--accent-color);
+}
+.profile-header p {
+    color: var(--text-color-muted);
+}
+.profile-section {
+    margin-bottom: 25px;
+}
+.profile-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+.profile-section h4 i {
+    margin-right: 8px;
+}
+.rewards-list, .ranking-list {
+    list-style: none;
+    padding-left: 0;
+}
+.rewards-list li, .ranking-list li {
+    background-color: var(--surface-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rewards-list li i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+.btn-logout {
+    background-color: #555;
+    color: var(--text-color);
+    width: 100%;
+}
+.btn-logout:hover {
+    background-color: #777;
+}
+
+/* Ranking */
+.ranking-list li i.fa-crown.gold { color: gold; }
+.ranking-list li i.fa-medal.silver { color: silver; }
+.ranking-list li i.fa-medal.bronze { color: #CD7F32; }
+
+/* Animaciones y efectos (Futurista y experiencial) */
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+    50% { box-shadow: 0 0 15px var(--accent-color), 0 0 25px var(--accent-color); }
+    100% { box-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color); }
+}
+
+.btn-primary, .btn-vote, .nav-item.active i {
+    /* animation: glow 2s infinite alternate; */ /* Descomentar para efecto neón pulsante */
+    text-shadow: 0 0 3px var(--accent-color); /* Sutil brillo neón al texto */
+}
+.quick-access-item:hover, .highlight-card:hover, .artist-item:hover, .event-card:hover {
+    box-shadow: 0 0 15px rgba(106, 13, 173, 0.5); /* Sombra púrpura al hacer hover */
+}
+
+/* --- Mockup de Tienda de Apps (Para la presentación) --- */
+/* Podrías crear una sección separada en el HTML o CSS si quieres visualizar esto */
+.app-store-preview {
+    background-color: #f0f0f0; /* Fondo típico de tienda */
+    padding: 30px;
+    border-radius: 10px;
+    color: #333;
+    margin-top: 30px; /* Para separarlo del mockup de la app */
+}
+.app-store-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.app-store-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--background-color); /* Usar el fondo del icono real */
+    /* Placeholder para el logo NIGHTMODE (negro, blanco, púrpura) */
+    background-image: linear-gradient(45deg, black 33%, white 33%, white 66%, var(--primary-color) 66%);
+    border-radius: 18px; /* Típico de iOS */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.6em;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2;
+}
+.app-store-icon span {
+    color: white; /* Ajustar según el diseño del logo */
+}
+.app-store-info h2 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #000;
+}
+.app-store-info p {
+    font-size: 0.9em;
+    color: #555;
+}
+.app-store-description {
+    margin-bottom: 20px;
+}
+.app-store-screenshots {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Para scrollear horizontalmente las capturas */
+    padding-bottom: 10px;
+}
+.app-store-screenshot {
+    width: 120px; /* Ajustar tamaño */
+    height: 200px; /* Ajustar proporción */
+    background-color: var(--surface-color); /* Placeholder */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: var(--text-color-muted);
+    text-align: center;
+    flex-shrink: 0; /* Para que no se encojan */
+}
+.app-store-category {
+    font-size: 0.8em;
+    color: #777;
+}

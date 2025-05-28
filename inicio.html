@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NIGHTMODE Mockup</title>
+    <link rel="stylesheet" href="css/ccs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="mobile-mockup">
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> <i class="fas fa-battery-full"></i></span>
+        </div>
+
+        <div id="app-content">
+            <section id="onboarding-1" class="screen active">
+                <div class="screen-content centered-content">
+                    <img src="assets/images/nightmode_logo_placeholder.png" alt="NIGHTMODE Logo" class="logo-large">
+                    <h1>Bienvenido a NIGHTMODE</h1>
+                    <p>by AWRA & NOMA</p>
+                    <button class="btn btn-primary" data-target="onboarding-2">Siguiente <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </section>
+
+            <section id="onboarding-2" class="screen">
+                <div class="screen-content centered-content">
+                    <img src="assets/images/awra_noma_placeholder.png" alt="AWRA NOMA" class="event-logo-medium">
+                    <h2>¿Fuiste a AWRA o NOMA este finde?</h2>
+                    <p>Tu noche no termina al salir del club.</p>
+                    <button class="btn btn-primary" data-target="onboarding-3">Continuar <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn btn-secondary" data-target="home">Omitir</button>
+                </div>
+            </section>
+
+            <section id="onboarding-3" class="screen">
+                <div class="screen-content centered-content">
+                    <i class="fas fa-camera-retro fa-3x icon-feature"></i>
+                    <i class="fas fa-music fa-3x icon-feature"></i>
+                    <i class="fas fa-trophy fa-3x icon-feature"></i>
+                    <h2>¡Descubrí tus fotos y participá!</h2>
+                    <p>Accede a la Jägger Cam, vota por artistas y gana premios.</p>
+                    <button class="btn btn-primary" data-target="home">¡Empezar! <i class="fas fa-rocket"></i></button>
+                </div>
+            </section>
+
+            <section id="home" class="screen">
+                <header class="app-header">
+                    <img src="assets/images/nightmode_icon.png" alt="NIGHTMODE" class="header-logo">
+                    <span>NIGHTMODE</span>
+                    <i class="fas fa-bell notification-icon"></i>
+                </header>
+                <div class="screen-content">
+                    <h2 class="section-title">Accesos Rápidos</h2>
+                    <div class="quick-access-grid">
+                        <div class="quick-access-item" data-target="galeria">
+                            <i class="fas fa-images fa-2x"></i>
+                            <span>Galería Jägger Cam</span>
+                        </div>
+                        <div class="quick-access-item" data-target="artistas">
+                            <i class="fas fa-microphone-alt fa-2x"></i>
+                            <span>Artistas Emergentes</span>
+                        </div>
+                        <div class="quick-access-item" data-target="eventos">
+                            <i class="fas fa-calendar-alt fa-2x"></i>
+                            <span>Próximos Eventos</span>
+                        </div>
+                        <div class="quick-access-item" data-target="ranking">
+                            <i class="fas fa-star fa-2x"></i>
+                            <span>Ranking</span>
+                        </div>
+                    </div>
+
+                    <div class="highlight-card" data-target="galeria">
+                        <h3><i class="fas fa-camera-retro"></i> Galería de la Noche</h3>
+                        <p>¡Nuevas fotos de Jägger Cam disponibles!</p>
+                        <img src="assets/images/party_image1.jpg" alt="Fiesta" class="responsive-img">
+                    </div>
+                </div>
+                <nav class="bottom-nav">
+                    <a href="#home" class="nav-item active" data-target="home"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#galeria" class="nav-item" data-target="galeria"><i class="fas fa-camera-retro"></i><span>Galería</span></a>
+                    <a href="#artistas" class="nav-item" data-target="artistas"><i class="fas fa-music"></i><span>Artistas</span></a>
+                    <a href="#eventos" class="nav-item" data-target="eventos"><i class="fas fa-calendar-check"></i><span>Eventos</span></a>
+                    <a href="#perfil" class="nav-item" data-target="perfil"><i class="fas fa-user"></i><span>Perfil</span></a>
+                </nav>
+            </section>
+
+            <section id="galeria" class="screen">
+                <header class="app-header">
+                    <i class="fas fa-arrow-left back-button" data-target="home"></i>
+                    <span>Galería Jägger Cam</span>
+                    <i class="fas fa-search"></i>
+                </header>
+                <div class="screen-content">
+                    <p class="centered-text">Fotos análogas digitalizadas del fin de semana.</p>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="assets/images/party_image1.jpg" alt="Foto Jägger Cam 1">
+                            <div class="photo-actions">
+                                <i class="far fa-heart"></i> <i class="fas fa-share-alt"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/images/party_image2.jpg" alt="Foto Jägger Cam 2">
+                             <div class="photo-actions">
+                                <i class="far fa-heart"></i> <i class="fas fa-share-alt"></i>
+                            </div>
+                        </div>
+                        </div>
+                    <h3 class="section-title">Vota la mejor foto del finde:</h3>
+                    </div>
+                <nav class="bottom-nav">
+                    <a href="#home" class="nav-item" data-target="home"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#galeria" class="nav-item active" data-target="galeria"><i class="fas fa-camera-retro"></i><span>Galería</span></a>
+                    <a href="#artistas" class="nav-item" data-target="artistas"><i class="fas fa-music"></i><span>Artistas</span></a>
+                    <a href="#eventos" class="nav-item" data-target="eventos"><i class="fas fa-calendar-check"></i><span>Eventos</span></a>
+                    <a href="#perfil" class="nav-item" data-target="perfil"><i class="fas fa-user"></i><span>Perfil</span></a>
+                </nav>
+            </section>
+
+            <section id="artistas" class="screen">
+                <header class="app-header">
+                    <i class="fas fa-arrow-left back-button" data-target="home"></i>
+                    <span>Artistas Emergentes</span>
+                    <i class="fas fa-sort-amount-down"></i>
+                </header>
+                <div class="screen-content">
+                    <p class="centered-text">Votación activa semanal. ¡Apoya a tu favorito!</p>
+                    <div class="artist-list">
+                        <div class="artist-item">
+                            <img src="assets/images/artist_placeholder.png" alt="Artista 1">
+                            <div class="artist-info">
+                                <h4>Nombre Artista 1</h4>
+                                <p>Género Musical</p>
+                                <div class="tiktok-preview">
+                                    <p>[Preview TikTok/Short]</p>
+                                    <i class="fab fa-tiktok"></i>
+                                </div>
+                            </div>
+                            <button class="btn btn-vote">Votar <i class="fas fa-check"></i></button>
+                        </div>
+                        </div>
+                </div>
+                <nav class="bottom-nav">
+                     <a href="#home" class="nav-item" data-target="home"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#galeria" class="nav-item" data-target="galeria"><i class="fas fa-camera-retro"></i><span>Galería</span></a>
+                    <a href="#artistas" class="nav-item active" data-target="artistas"><i class="fas fa-music"></i><span>Artistas</span></a>
+                    <a href="#eventos" class="nav-item" data-target="eventos"><i class="fas fa-calendar-check"></i><span>Eventos</span></a>
+                    <a href="#perfil" class="nav-item" data-target="perfil"><i class="fas fa-user"></i><span>Perfil</span></a>
+                </nav>
+            </section>
+
+            <section id="eventos" class="screen">
+                 <header class="app-header">
+                    <i class="fas fa-arrow-left back-button" data-target="home"></i>
+                    <span>Próximos Eventos</span>
+                    <i class="fas fa-filter"></i>
+                </header>
+                <div class="screen-content">
+                     <div class="event-card">
+                        <img src="assets/images/event_banner_placeholder.jpg" alt="Banner Evento" class="event-banner">
+                        <div class="event-details">
+                            <h3>NIGHTMODE Fiesta Lanzamiento</h3>
+                            <p><i class="fas fa-calendar-alt"></i> Sábado, 25 de Mayo</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Club AWRA</p>
+                            <p><i class="fas fa-users"></i> Line-up: DJ Night, MC Flow</p>
+                            <p class="promotion"><i class="fas fa-tag"></i> 2x1 en Jägermeister hasta la 1 AM</p>
+                            <button class="btn btn-secondary"><i class="fas fa-calendar-plus"></i> Añadir al Calendario</button>
+                        </div>
+                    </div>
+                     </div>
+                 <nav class="bottom-nav">
+                    <a href="#home" class="nav-item" data-target="home"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#galeria" class="nav-item" data-target="galeria"><i class="fas fa-camera-retro"></i><span>Galería</span></a>
+                    <a href="#artistas" class="nav-item" data-target="artistas"><i class="fas fa-music"></i><span>Artistas</span></a>
+                    <a href="#eventos" class="nav-item active" data-target="eventos"><i class="fas fa-calendar-check"></i><span>Eventos</span></a>
+                    <a href="#perfil" class="nav-item" data-target="perfil"><i class="fas fa-user"></i><span>Perfil</span></a>
+                </nav>
+            </section>
+
+            <section id="perfil" class="screen">
+                <header class="app-header">
+                    <i class="fas fa-arrow-left back-button" data-target="home"></i>
+                    <span>Mi Perfil</span>
+                    <i class="fas fa-cog"></i> </header>
+                <div class="screen-content">
+                    <div class="profile-header">
+                        <img src="assets/images/user_avatar_placeholder.png" alt="Avatar Usuario" class="profile-avatar">
+                        <h3>TuNombreDeUsuario</h3>
+                        <p>Puntos: 1250 | Nivel: Explorador Nocturno</p>
+                    </div>
+                    <div class="profile-section">
+                        <h4><i class="fas fa-trophy"></i> Mis Recompensas</h4>
+                        <ul class="rewards-list">
+                            <li><i class="fas fa-cocktail"></i> 1 Copa Gratis (Canjeada)</li>
+                            <li><i class="fas fa-ticket-alt"></i> Acceso VIP Próximo Evento (Disponible)</li>
+                        </ul>
+                    </div>
+                     <div class="profile-section">
+                        <h4><i class="fas fa-chart-line"></i> Mi Progreso</h4>
+                        <p>Asistencias: 5 eventos</p>
+                        <p>Votos emitidos: 23</p>
+                        <p>Fotos compartidas: 8</p>
+                    </div>
+                    <button class="btn btn-logout">Cerrar Sesión</button>
+                </div>
+                <nav class="bottom-nav">
+                     <a href="#home" class="nav-item" data-target="home"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#galeria" class="nav-item" data-target="galeria"><i class="fas fa-camera-retro"></i><span>Galería</span></a>
+                    <a href="#artistas" class="nav-item" data-target="artistas"><i class="fas fa-music"></i><span>Artistas</span></a>
+                    <a href="#eventos" class="nav-item" data-target="eventos"><i class="fas fa-calendar-check"></i><span>Eventos</span></a>
+                    <a href="#perfil" class="nav-item active" data-target="perfil"><i class="fas fa-user"></i><span>Perfil</span></a>
+                </nav>
+            </section>
+
+            <section id="ranking" class="screen">
+                 <header class="app-header">
+                    <i class="fas fa-arrow-left back-button" data-target="home"></i>
+                    <span>Ranking Mensual</span>
+                    <i class="fas fa-info-circle"></i>
+                </header>
+                <div class="screen-content">
+                    <p class="centered-text">¡Los más activos de NIGHTMODE!</p>
+                    <ul class="ranking-list">
+                        <li><span>1. UsuarioXtreme</span> <span>5800 pts</span> <i class="fas fa-crown gold"></i></li>
+                        <li><span>2. PartyAnimal22</span> <span>5500 pts</span> <i class="fas fa-medal silver"></i></li>
+                        <li><span>3. TuNombreDeUsuario</span> <span>5250 pts</span> <i class="fas fa-medal bronze"></i></li>
+                        </ul>
+                </div>
+                 <nav class="bottom-nav">
+                     <a href="#home" class="nav-item active" data-target="home"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#galeria" class="nav-item" data-target="galeria"><i class="fas fa-camera-retro"></i><span>Galería</span></a>
+                    <a href="#artistas" class="nav-item" data-target="artistas"><i class="fas fa-music"></i><span>Artistas</span></a>
+                    <a href="#eventos" class="nav-item" data-target="eventos"><i class="fas fa-calendar-check"></i><span>Eventos</span></a>
+                    <a href="#perfil" class="nav-item" data-target="perfil"><i class="fas fa-user"></i><span>Perfil</span></a>
+                </nav>
+            </section>
+
+
+        </div> </div> <script src="java/1.js"></script>
+</body>
+</html>
